@@ -9,7 +9,9 @@ app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 def profile_html():
     with open("templates/index.html", "r") as html_file:
         content = html_file.read()
+    print(content)  # Debugging output
     return HTMLResponse(content=content, status_code=200)
+
 
 @app.get("/", response_class=HTMLResponse)
 def home():
